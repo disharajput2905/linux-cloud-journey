@@ -21,5 +21,9 @@ Created a system information script that:
   - creates home directory
   - sets password securely
   - displays succes image
+3. variables.sh
+  - declaring variables like name and age
+  - printing output using echo
+  - making a variable immuatble using readonly.
 
 

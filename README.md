@@ -25,7 +25,8 @@ This repository documents my structured journey of mastering:
   - declaring variables like name and age
   - printing output using echo
   - making a variable immuatble using readonly.
-
+4. additon.sh
+  - adds 2 numbers given beside script.
 
 ## Day 02 - Conditional Statements
 

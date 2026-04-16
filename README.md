@@ -43,3 +43,54 @@ Today I practiced decision-making in shell scripting using:
 2. "num_checker.sh" → Checks if number is Positive, Negative, or Zero
 3. "file_checker.sh" → Verifies whether a file exists
 
+
+## Day 03 – Case Statement & Pattern Matching
+
+##  Topics Covered
+- `case` statement
+- Pattern matching with wildcards (`*`)
+- Logical branching
+- Menu-driven scripting
+- Basic system utilities
+- File extension detection
+
+#  Scripts created
+1. calculator.sh
+Simple calculator using `case`.
+**Features:**
+- Takes two numbers as input
+- Supports: `+`, `-`, `*`, `/`
+- Handles invalid operators
+
+2. grade.sh
+**Features:**
+- Accepts grade (A, B, C, D)
+- Displays performance message
+- Handles invalid input
+
+3. weekdays.sh
+**Features:**
+- Maps number to weekday
+- Includes default case handling
+
+4. system_menu.sh
+**Features:**
+- Show current date
+- Show current directory
+- Show disk usage (`df -h`)
+- Show RAM usage (`free -h`)
+- Show system uptime
+- Uses `case` for clean branching
+
+5. file_type_checker.sh
+**Features:**
+- `.sh` → Shell Script  
+- `.txt` → Text File  
+- `.jpg` / `.png` → Image File  
+- Anything else → Unknown File Type  
+
+## 🛠 How to Run Any Script
+
+```bash
+chmod +x script_name.sh
+./script_name.sh

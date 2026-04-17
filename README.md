@@ -89,11 +89,6 @@ Simple calculator using `case`.
 - `.jpg` / `.png` → Image File  
 - Anything else → Unknown File Type  
 
-## 🛠 How to Run Any Script
-
-```bash
-chmod +x script_name.sh
-./script_name.sh
 
 ## Day 04 – Loops
 
@@ -134,4 +129,10 @@ chmod +x script_name.sh
 7. table.sh
 - Prints multiplication table using loop
 
+
+## 🛠 How to Run Any Script
+
+```bash
+chmod +x script_name.sh
+./script_name.sh
 

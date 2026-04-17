@@ -94,3 +94,44 @@ Simple calculator using `case`.
 ```bash
 chmod +x script_name.sh
 ./script_name.sh
+
+## Day 04 – Loops
+
+## Topics Covered
+- for loop
+- while loop
+- until loop
+- break and continue
+- Loop-based automation
+- Debugging common loop errors
+
+# Scripts Created
+
+1. countdown.sh
+- Takes user input
+- Displays countdown timer using while loop
+
+2. cpu_monitor.sh
+- Monitors CPU usage
+- Runs continuously using infinite loop
+- Uses sleep for interval control
+
+3. create_multiple_users.sh
+- Creates multiple users automatically
+- Uses for loop and seq
+
+4. file_counter.sh
+- Counts number of .sh files in directory
+
+5.  multiple_folder_creation.sh
+- Creates multiple folders dynamically
+- Uses loop-based automation
+
+6. password_checker.sh
+- Repeats until strong password is entered
+- Demonstrates input validation using loop
+
+7. table.sh
+- Prints multiplication table using loop
+
+

@@ -140,7 +140,7 @@ Simple calculator using `case`.
 - Silent execution using `&>/dev/null`
 
 ### 🛠 Scripts Created
-1️1. arguments.sh  
+1. arguments.sh  
 - Demonstrates how to access command-line arguments  
 - Prints first argument, second argument  
 - Displays total number of arguments  

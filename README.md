@@ -129,6 +129,52 @@ Simple calculator using `case`.
 7. table.sh
 - Prints multiplication table using loop
 
+##  Day 05 – Functions & Arguments
+
+## Topics Covered
+- Bash functions
+- Script arguments (`$1`, `$2`, `$@`, `$#`)
+- Argument validation
+- Exit status (`$?`)
+- Looping through arguments
+- Silent execution using `&>/dev/null`
+
+### 🛠 Scripts Created
+1️1. arguments.sh  
+- Demonstrates how to access command-line arguments  
+- Prints first argument, second argument  
+- Displays total number of arguments  
+- Loops through all arguments using `for` loop  
+
+2. calculator_args.sh
+- Accepts numbers and operator as arguments  
+- Performs arithmetic operations using `case`  
+- Validates argument count  
+- Displays usage message if incorrect input provided  
+
+3. hello_note.sh
+- Uses functions for structured scripting  
+- Accepts user input or arguments  
+- Prints formatted greeting message  
+
+4. multi_greet.sh  
+- Accepts multiple names as arguments  
+- Loops through `$@`  
+- Greets each user individually  
+- Includes argument validation  
+
+# Skills Improved
+- Writing modular scripts
+- Handling dynamic input from terminal
+- Improving script reliability with validation
+- Understanding how real-world CLI tools work
+
+
+
+
+
+
+
 
 ## 🛠 How to Run Any Script
 

@@ -170,6 +170,43 @@ Simple calculator using `case`.
 - Understanding how real-world CLI tools work
 
 
+##  Day 06 – Arrays & File Handling
+
+##  Topics Covered
+- Indexed Arrays
+- Associative Arrays
+- Array expansion (${array[*]})
+- Adding elements to arrays
+- Reading file line by line
+- while read loop
+- Input redirection (<)
+- Basic automation using arrays & files
+
+##Scripts Created
+
+1. arrays.sh
+- Created indexed array of servers
+- Accessed elements using index
+- Displayed all elements using ${servers[*]}
+- Added new elements dynamically
+- Simulated server initialization
+
+2. array-key.sh
+- Created associative array using declare -A
+- Stored key-value pairs (name, age, city, domain)
+- Accessed values using keys
+- Displayed structured user information
+
+3. Readfile.sh
+- Used while read loop
+- Read data from domaininfo.txt
+- Printed each line dynamically
+- Demonstrated file-based automation
+
+## Supporting File
+3.0 domaininfo.txt
+- Contains user domain data
+- Used as input file for Readfile.sh
 
 
 

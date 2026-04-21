@@ -1,0 +1,2 @@
+ stuff to learn next :AWS,docker
+ lets finish shell first with some projects

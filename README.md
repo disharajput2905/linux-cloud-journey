@@ -178,7 +178,8 @@ Simple calculator using `case`.
 - Array expansion (${array[*]})
 - Adding elements to arrays
 - Reading file line by line
-- while read loop
+- logging with timestamps
+- system health monitoring
 - Input redirection (<)
 - Basic automation using arrays & files
 
@@ -203,11 +204,54 @@ Simple calculator using `case`.
 - Printed each line dynamically
 - Demonstrated file-based automation
 
+4. file_check.sh
+- Takes filename as user input
+- Checks if file exists
+- Displays file content if present
+- Shows message if file not found
+
+Concepts used:
+- read command
+- if condition
+- -f file test operator
+- cat command
+
+
+5. log_script.sh
+- Creates app.log
+- Adds timestamp using date command
+- Logs script activity with user information
+- Uses >> for appending logs
+
+
+6. health_check.sh
+- Generates system health report
+- Checks:
+  - CPU load (uptime)
+  - Memory usage (free -h)
+  - Disk usage (df -h)
+- Saves output to health.log
+
+
+ Log Files Generated
+- app.log
+- health.log
+- all.log (combined output & error redirection practice)
+
+
+Key Learnings
+- Difference between logfile and $logfile
+- Importance of variable referencing
+- Output redirection (>, >>, 2>, 2>&1)
+- Practical logging used in real DevOps environments
+- Basic monitoring automation
+
 ## Supporting File
 3.0 domaininfo.txt
 - Contains user domain data
 - Used as input file for Readfile.sh
-
+0.0 goals.txt
+- for fun
 
 
 

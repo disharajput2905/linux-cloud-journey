@@ -254,6 +254,71 @@ Key Learnings
 - for fun
 
 
+### Day 07 – CronJobs
+
+Today I learned and implemented automated task scheduling using cron jobs.
+
+Cron jobs are essential in DevOps for:
+- Backups
+- Monitoring
+- Log rotation
+- Health checks
+- Disk usage tracking
+
+
+ Folder Structure (day07-cronjobs)
+backup.sh  
+backup.log  
+system_info.sh  
+system_info.log  
+diskusage.sh  
+diskusage.log  
+cron_output.log  
+
+
+1. Backup Script
+backup.sh  
+- Appends current date and time into backup.log  
+- Runs automatically using cron  
+
+Example output inside backup.log:
+backup running at date : Fri Apr 24 03:28:01 PM UTC 2026
+
+
+2.  System Monitoring Script
+system_info.sh  
+Logs:
+- Current date
+- System uptime
+- Memory usage (free -m)
+
+Output stored in:
+system_info.log
+
+This simulates real production server monitoring.
+
+
+3. Disk Usage Monitoring
+diskusage.sh  
+Logs:
+- Disk space usage using df -h
+
+Output stored in:
+diskusage.log
+
+Used in production to monitor server storage.
+
+
+4.  Cron Configuration
+Example crontab entry:
+
+*/4 * * * * /home/disharajput/linux-cloud-journey/day07-cronjobs/system_info.sh >> /home/disharajput/linux-cloud-journey/day07-cronjobs/cron_output.log 2>&1
+
+Meaning:
+- Runs every 4 minutes
+- Uses absolute paths (best practice)
+- Redirects both output and errors to cron_output.log
+
 
 
 

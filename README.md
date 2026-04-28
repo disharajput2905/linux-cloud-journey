@@ -319,6 +319,22 @@ Meaning:
 - Uses absolute paths (best practice)
 - Redirects both output and errors to cron_output.log
 
+## Day08-awk,sed,cut,grep
+practiced file handling commands
+#log files
+- evening logs
+- INFO logs
+
+
+### Day09-networking_basics
+practiced scripts using network commands
+## scripts created
+1. connectivity_check.sh
+- checks server connection usin 'ping'
+2. website_check.sh
+- checks if website is up using 'curl'
+
+
 
 
 

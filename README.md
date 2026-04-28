@@ -328,7 +328,6 @@ practiced file handling commands
 
 ### Day09-networking_basics
 practiced scripts using network commands
-## scripts created
 1. connectivity_check.sh
 - checks server connection usin 'ping'
 2. website_check.sh

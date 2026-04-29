@@ -334,7 +334,8 @@ practiced scripts using network commands
 - checks if website is up using 'curl'
 
 
-##### project_script_file_deletion
+##### Practice Work
+## project_script_file_deletion
 safe_file_delete.sh
 
 ## Description

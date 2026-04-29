@@ -334,7 +334,33 @@ practiced scripts using network commands
 - checks if website is up using 'curl'
 
 
+##### project_script_file_deletion
+safe_file_delete.sh
 
+## Description
+safe_delete.sh is a simple shell script that:
+- Takes a filename as argument
+- Checks if the argument is provided
+- Verifies if the file exists
+- Asks for user confirmation before deletion
+- Deletes the file safely
+- Logs the deletion into delete.log
+- Uses proper exit codes
+This script demonstrates basic error handling in Bash.
+
+## Exit Code Meaning
+- 0 - Success / Cancelled safely
+- 1 -  No argument provided
+- 2 -  File does not exist
+- 3 -  Deletion failed
+
+## Concepts Covered
+- Positional parameters ($1, $#)
+- Conditional statements (if)
+- File test operator (-f)
+- Exit status ($?)
+- Logging with >>
+- Basic error handling
 
 
 ## 🛠 How to Run Any Script

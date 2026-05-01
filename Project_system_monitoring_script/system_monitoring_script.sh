@@ -71,6 +71,10 @@ disk_usage=$(df -H | egrep -v "filesystem|tmpfs" | grep sda2 | awk '{print $5}' 
 #---------------------------------------------
 # call functions
 #--------------------------------------------
+echo -e "${YELLOW}Starting System Monitoring....${NC}"
+log "--------- Script started ----------"
 check_cpu
 check_ram
 check_disk
+log "-------- Script Finished ----------"
+echo -e "${YELLOW}Monitoring Completed.${NC}"

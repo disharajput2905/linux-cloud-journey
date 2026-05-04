@@ -1,4 +1,6 @@
 #!/bin/bash
+set -euo pipefail
+
 # ------------------------------------------
 #       threshold values
 #-------------------------------------------
@@ -6,7 +8,7 @@ cpu_th=80
 ram_th=1000  # in MB
 disk_th=80   # in %
 to=disharajput2906@gmail.com
-logfile="system_monitoring_log"
+logfile="system_monitoring.log"
 
 # -----------------------------------------
 # Colors
@@ -68,13 +70,39 @@ disk_usage=$(df -H | egrep -v "filesystem|tmpfs" | grep sda2 | awk '{print $5}' 
       fi
 }
 
+# ----------------------------
+# Check Nginx Service
+# ----------------------------
+check_nginx() {
+    systemctl is-active --quiet nginx
+      if [ $? -ne 0 ]; then
+        echo -e "${RED}Nginx is DOWN. Restarting...${NC}"
+        log "NGINX DOWN - Restarting service"
+
+     systemctl restart nginx
+         if [ $? -eq 0 ]; then
+            echo -e "${GREEN}Nginx restarted successfully.${NC}"
+            log "NGINX RESTART SUCCESS"
+            echo "Nginx was down and has been restarted." | mail -s "Nginx Restart Alert" $EMAIL
+        else
+            echo -e "${RED}Nginx restart FAILED!${NC}"
+            log "NGINX RESTART FAILED"
+            echo "Nginx restart failed. Immediate attention needed." | mail -s "Critical Nginx Failure" $EMAIL
+        fi
+    else
+        echo -e "${GREEN}Nginx is running.${NC}"
+        log "NGINX OK"
+    fi
+}
+
 #---------------------------------------------
-# call functions
+# call all functions
 #--------------------------------------------
 echo -e "${YELLOW}Starting System Monitoring....${NC}"
 log "--------- Script started ----------"
 check_cpu
 check_ram
 check_disk
+check_nginx
 log "-------- Script Finished ----------"
 echo -e "${YELLOW}Monitoring Completed.${NC}"

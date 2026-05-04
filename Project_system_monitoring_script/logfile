@@ -1,16 +1,22 @@
- Fri May  1 03:41:16 PM UTC 2026 : CPU is Ok - Usage: 0%
- Fri May  1 03:41:16 PM UTC 2026 :  RAM is Ok - Usage: 4267MB
- Fri May  1 03:41:16 PM UTC 2026 : Disk is Ok - Usage: 26%
- Fri May  1 04:19:06 PM UTC 2026 : CPU Usage is Normal - Usage: 2%
- Fri May  1 04:19:06 PM UTC 2026 :  RAM is Ok - Usage: 4232MB
- Fri May  1 04:19:06 PM UTC 2026 : Disk Usage is Normal - Usage: 26%
- Fri May  1 04:35:37 PM UTC 2026 : --------- Script started ----------
- Fri May  1 04:35:38 PM UTC 2026 : CPU Usage is Normal - Usage: 2%
- Fri May  1 04:35:38 PM UTC 2026 :  RAM is Ok - Usage: 4182MB
- Fri May  1 04:35:38 PM UTC 2026 : Disk Usage is Normal - Usage: 26%
- Fri May  1 04:35:38 PM UTC 2026 : -------- Script Finished ----------
- Fri May  1 04:37:02 PM UTC 2026 : --------- Script started ----------
- Fri May  1 04:37:02 PM UTC 2026 : CPU Usage is Normal - Usage: 0%
- Fri May  1 04:37:02 PM UTC 2026 :  RAM is Ok - Usage: 4173MB
- Fri May  1 04:37:02 PM UTC 2026 : Disk Usage is Normal - Usage: 26%
- Fri May  1 04:37:02 PM UTC 2026 : -------- Script Finished ----------
+ Mon May  4 04:27:17 PM UTC 2026 : --------- Script started ----------
+ Mon May  4 04:27:17 PM UTC 2026 : CPU Usage is Normal - Usage: 2%
+ Mon May  4 04:27:17 PM UTC 2026 :  RAM is Ok - Usage: 3911MB
+ Mon May  4 04:27:17 PM UTC 2026 : Disk Usage is Normal - Usage: 26%
+ Mon May  4 04:29:05 PM UTC 2026 : --------- Script started ----------
+ Mon May  4 04:29:05 PM UTC 2026 : CPU Usage is Normal - Usage: 2%
+ Mon May  4 04:29:05 PM UTC 2026 :  RAM is Ok - Usage: 3910MB
+ Mon May  4 04:29:05 PM UTC 2026 : Disk Usage is Normal - Usage: 26%
+ Mon May  4 04:30:06 PM UTC 2026 : --------- Script started ----------
+ Mon May  4 04:30:07 PM UTC 2026 : CPU Usage is Normal - Usage: 0%
+ Mon May  4 04:30:07 PM UTC 2026 :  RAM is Ok - Usage: 3913MB
+ Mon May  4 04:30:07 PM UTC 2026 : Disk Usage is Normal - Usage: 26%
+ Mon May  4 04:30:07 PM UTC 2026 : NGINX OK
+ Mon May  4 04:30:07 PM UTC 2026 : -------- Script Finished ----------
+/bin/sh: 1: /home/disharajput/linux-cloud-journey/Project_system_monitoring_script: Permission denied
+ Mon May  4 04:35:02 PM UTC 2026 : --------- Script started ----------
+ Mon May  4 04:35:03 PM UTC 2026 : CPU Usage is Normal - Usage: 2%
+ Mon May  4 04:35:03 PM UTC 2026 :  RAM is Ok - Usage: 3909MB
+ Mon May  4 04:35:03 PM UTC 2026 : Disk Usage is Normal - Usage: 26%
+ Mon May  4 04:35:03 PM UTC 2026 : NGINX OK
+ Mon May  4 04:35:03 PM UTC 2026 : -------- Script Finished ----------
+/bin/sh: 1: /home/disharajput/linux-cloud-journey/Project_system_monitoring_script: Permission denied

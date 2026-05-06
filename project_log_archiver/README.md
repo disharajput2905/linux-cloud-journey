@@ -1,169 +1,148 @@
-######  PROJECT: LOG ARCHIVER (Shell Script)
+# 📦 Log Archiver Script
 
-A production-style shell script that:
+A production-style Bash automation script that archives and cleans up old log files.
 
-✅ Compresses old log files using gzip
-✅ Moves them to an archive directory
-✅ Deletes archives older than 30 days
-✅ Includes error handling
-✅ Logs script activity
-✅ Can be automated using cron
-
-
-This project is part of my linux-cloud-journey repository to practice real-world DevOps-style shell scripting.
-
+Built as part of my Linux & Shell scripting journey 
 
 ---
 
-📁 Project Structure
+## 📌 Project Overview
 
+This script:
+
+- ✅ Compresses `.log` files older than **7 days**
+- ✅ Moves them to an `archive/` directory
+- ✅ Deletes archived `.gz` files older than **30 days**
+- ✅ Maintains a detailed execution log (`archiver.log`)
+- ✅ Runs automatically every day at **2:00 AM via cron**
+
+---
+
+## 🛠️ Tech Stack
+
+- Bash Shell Scripting  
+- Linux `find` command  
+- `gzip` for compression  
+- `cron` for automation  
+
+---
+
+## 📂 Project Structure
+
+```
 project_log_archiver/
-│── log_archiver.sh
-│── archiver.log
-│── test_logs/
-│   ├── app.log
-│   └── archive/
-
-
----
-
-####  Features
-1. Archive Old Logs
-Finds .log files older than X days
-Compresses them using gzip
-Moves them to archive/ directory
-
-
-2. Cleanup Old Archives
-Deletes archived .gz files older than 30 days
-
-
-3. Error Handling
-Validates source directory exists
-Creates archive directory if missing
-Logs errors properly
-Safe file operations
-
-
-4. Logging
-All script activity is recorded in:
-archiver.log
-
+│
+├── log_archiver.sh
+├── archiver.log
+└── test_logs/
+    ├── archive/
+    └── *.log
+```
 
 ---
 
-🛠️ Script Explanation
+## ⚙️ Configuration Variables
 
-🔹 Variables
-source="./test_logs"
-archive="./test_logs/archive"
-logfile="archiver.log"
+Inside the script:
+
+```bash
+source=./test_logs
+archive=./test_logs/archive
 days=7
 delete=30
+logfile=./archiver.log
+```
 
-source → Where logs exist
-archive → Where compressed logs are stored
-days → Archive logs older than 7 days
-delete → Delete archives older than 30 days
-
-
-
----
-
-🔹 Step 1: Validate Source Directory
-
-if [ ! -d "$source" ]; then
-    echo "Source directory does not exist!" >> "$logfile"
-    exit 1
-fi
-
-Prevents script failure if path is wrong.
-
+| Variable | Description |
+|----------|------------|
+| `source` | Directory containing log files |
+| `archive` | Directory where compressed logs are stored |
+| `days` | Logs older than this will be compressed |
+| `delete` | Archives older than this will be deleted |
+| `logfile` | Script execution log file |
 
 ---
 
-🔹 Step 2: Create Archive Directory
+## 🔄 How It Works
 
-mkdir -p "$archive"
--p ensures no error if directory already exists.
+### 1️⃣ Check Source Directory  
+Ensures the log directory exists.
 
+### 2️⃣ Create Archive Directory  
+Creates archive folder if it doesn’t exist.
 
----
+### 3️⃣ Archive Old Logs  
+- Finds `.log` files older than 7 days  
+- Compresses them using `gzip`  
+- Moves them to `archive/`
 
-🔹 Step 3: Compress and Move Old Logs
-
-find "$source" -type f -name "*.log" -mtime +$days | while read file
-do
-    gzip "$file"
-    mv "$file.gz" "$archive"
-done
-
--mtime +7 → Files older than 7 days
-gzip → Compresses log
-mv → Moves compressed file
-
-
+### 4️⃣ Delete Old Archives  
+Removes `.gz` files older than 30 days.
 
 ---
 
-🔹 Step 4: Delete Old Archives
+## ⏰ Cron Automation (Runs Daily at 2 AM)
 
-find "$archive" -type f -name "*.gz" -mtime +$delete -exec rm -f {} \;
-Deletes archive files older than 30 days.
+Cron entry:
 
+```bash
+0 2 * * * /absolute/path/to/log_archiver.sh >> /absolute/path/to/archiver.log 2>&1
+```
 
----
+To edit crontab:
 
-▶️ How to Run
-
-Make script executable:
-chmod +x log_archiver.sh
-
-Run:
-./log_archiver.sh
-
-
----
-
-⏰ Automate with Cron
-
-Open crontab:
+```bash
 crontab -e
-Example: Run daily at 2 AM
+```
 
-0 2 * * * /home/disharajput/linux-cloud-journey/project_log_archiver/log_archiver.sh >> /home/disharajput/linux-cloud-journey/project_log_archiver/archiver.log 2>&1
-
-
----
-
-📚 What I Learned
-
-Using find with -mtime
-File compression with gzip
-Safe scripting practices
-Logging and redirection
-Directory validation
-Automating with cron
-Writing production-style shell scripts
-
-
+This ensures the script runs automatically every night at **2:00 AM**.
 
 ---
 
-🎯 Future Improvements
+## 🧪 Manual Execution
 
-Add email alerts
-Add configurable arguments
-Add dry-run mode
-Convert into reusable production utility
+To run manually:
 
-
+```bash
+chmod +x log_archiver.sh
+./log_archiver.sh
+```
 
 ---
 
-# Skills Used
+## 📝 Sample Log Output
 
-Linux
-Bash
-Cron
-Git
+```
+25-05-06 02:00:01 - ====== Script Started ======
+25-05-06 02:00:02 - archiving logs older than 7 days....
+25-05-06 02:00:03 - archived: app.log
+25-05-06 02:00:04 - deleting archives older than 30 days....
+25-05-06 02:00:05 - ====== Script Completed ======
+```
+
+---
+
+## 💡 Key Learning Outcomes
+
+- Writing modular Bash scripts
+- Implementing logging functions
+- Error handling in shell scripting
+- Using `find` with time-based filters
+- Automating tasks with cron
+- Production-style script structuring
+
+---
+
+## 🚀 Future Improvements
+
+- Add email notification on failure  
+- Add configurable arguments via CLI flags  
+- Add dry-run mode  
+- Add log rotation for `archiver.log`  
+
+---
+
+## 👩‍💻 Author
+
+**Disha Rajput**  
+Linux | Cloud | DevOps Enthusiast

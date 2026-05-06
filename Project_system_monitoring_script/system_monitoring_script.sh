@@ -5,7 +5,7 @@ set -euo pipefail
 #       threshold values
 #-------------------------------------------
 cpu_th=80
-ram_th=1000  # in MB
+ram_th=85  # in %
 disk_th=80   # in %
 to=disharajput2906@gmail.com
 logfile="system_monitoring.log"
@@ -44,14 +44,14 @@ cpu_usage=$(top -bn1 | grep "Cpu(s)" | awk '{print $2}' | cut -d. -f1)
 #function : check RAM
 #--------------------------------------------
 check_ram() {
-free_ram=$(free -mt | grep "Total" | awk '{print $4}')
-     if [ $free_ram -lt $ram_th ]; then
-      echo -e "${RED} RAM is LOW: ${free_ram}MB${NC}"
-        log "RAM ALERT! - Usage: ${free_ram}MB"
-         echo "Avialable  RAM is LOW! ${free_ram}MB" | mail -s "RAM ALERT!" $to
-      else echo " RAM is Ok "
-             echo -e "${GREEN}RAM is Normal: ${free_ram}MB${NC}"
-            log " RAM is Ok - Usage: ${free_ram}MB" 
+free_ram=$(free | awk '/Mem/ {printf("%.0f"), $3/$2 * 100}')
+     if [ $free_ram -gt $ram_th ]; then
+      echo -e "${RED} HIGH RAM Usage!! : $free_ram%${NC}"
+        log "RAM ALERT! - Usage: $free_ram%"
+         echo "Avialable  RAM Usage is HIGH! $free_ram%" | mail -s "RAM ALERT!" $to
+      else echo " RAM Usage is Normal "
+             echo -e "${GREEN}RAM Usage is Normal: $free_ram%${NC}"
+            log " RAM Usage is Normal - Usage: $free_ram%" 
      fi
 }
 

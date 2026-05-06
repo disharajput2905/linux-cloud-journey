@@ -1,216 +1,155 @@
-📊 Project: System Monitoring Script
+# 📊 System Monitoring Script
 
-A production-style Bash automation script that monitors system resources and service health, sends email alerts, logs activity, and runs automatically using cron.
+A production-style Bash script that monitors system resources and logs alerts when thresholds are exceeded.
 
-📁 Repository: linux-cloud-journey
-📂 Folder: Project_system_monitoring_script
-📜 Script: system_monitoring_script.sh
-
+Built as part of my Linux & Cloud automation journey 🚀
 
 ---
 
-🚀 Project Overview
+## 📌 Project Overview
 
-This script continuously monitors:
+This script:
 
-CPU Usage
-
-RAM Usage
-
-Disk Usage
-
-Nginx Service Status
-
-
-If any threshold is exceeded:
-
-An email alert is triggered
-
-The event is logged
-
-If Nginx is down, it is automatically restarted
-
-
-The script runs automatically every 5 minutes using sudo crontab -e.
-
+- ✅ Monitors CPU usage
+- ✅ Monitors RAM usage (percentage-based)
+- ✅ Monitors Disk usage
+- ✅ Logs alerts when usage crosses defined thresholds
+- ✅ Appends output to a logfile
+- ✅ Runs automatically every 5 minutes using cron
 
 ---
 
-⚙️ Technologies Used
+## 🛠️ Tech Stack
 
-Bash Scripting
-
-Linux System Commands (top, free, df)
-
-systemctl for service management
-
-Cron Jobs
-
-Mail Utility (mail)
-
-Log File Handling
-
-Conditional Logic & Functions
-
-
-
+- Bash Shell Scripting  
+- Linux system utilities (`top`, `free`, `df`)  
+- `awk` for parsing  
+- `cron` for automation  
+- `postfix` for mail
+- `systemctl` for service management
 ---
 
-🧠 Monitoring Logic
+## 📂 Project Structure
 
-🔹 CPU Check
-
-Extracts CPU usage using top
-
-Sends alert if usage > 80%
-
-
-🔹 RAM Check
-
-Calculates memory usage percentage
-
-Sends alert if usage > 85%
-
-
-🔹 Disk Check
-
-Checks disk usage via df
-
-Sends alert if usage > 80%
-
-
-🔹 Nginx Service Check
-
-Uses systemctl is-active
-
-If down:
-
-Attempts automatic restart
-
-Sends alert email
-
-Logs status
-
-
-
-
----
-
-📂 Project Structure
-
+```
 Project_system_monitoring_script/
 │
 ├── system_monitoring_script.sh
-├── system_monitoring.log
-└── README.md
-
+└── logfile
+```
 
 ---
 
-📜 Script Configuration
+## ⚙️ Threshold Configuration
 
-Threshold values:
+Inside the script:
 
+```bash
 cpu_th=80
 ram_th=85
 disk_th=80
+```
 
-Email recipient:
+| Variable | Description |
+|----------|------------|
+| `cpu_th` | Alert if CPU usage exceeds this % |
+| `ram_th` | Alert if RAM usage exceeds this % |
+| `disk_th` | Alert if Disk usage exceeds this % |
 
-to=disharajput2906@gmail.com
-
-Log file:
-
-logfile="system_monitoring.log"
-
+You can adjust these values based on your system capacity.
 
 ---
 
-⏰ Cron Automation
+## 🔄 How It Works
 
-The script runs automatically every 5 minutes using:
+### 1️⃣ CPU Monitoring
+- Extracts CPU usage
+- Compares against threshold
+- Logs alert if exceeded
 
-sudo crontab -e
+### 2️⃣ RAM Monitoring
+- Calculates RAM usage percentage
+- Compares against threshold
+- Logs warning if exceeded
+
+### 3️⃣ Disk Monitoring
+- Checks root (`/`) disk usage
+- Compares against threshold
+- Logs alert if exceeded
+
+All results are appended to `logfile`.
+
+---
+
+## ⏰ Cron Automation (Runs Every 5 Minutes)
 
 Cron entry:
 
-*/5 * * * * /home/disharajput/linux-cloud-journey/Project_system_monitoring_script/system_monitoring_script.sh >> /home/disharajput/linux-cloud-journey/Project_system_monitoring_script/system_monitoring.log 2>&1
+```bash
+*/5 * * * * /absolute/path/to/system_monitoring_script.sh >> /absolute/path/to/logfile 2>&1
+```
 
-This ensures:
+To edit crontab:
 
-Continuous monitoring
+```bash
+crontab -e
+```
 
-Logs are appended
-
-Errors are captured
-
-
+This ensures continuous monitoring of system health.
 
 ---
 
-🛠️ Setup Instructions
+## 🧪 Manual Execution
 
-1️⃣ Make script executable
+To run manually:
 
+```bash
 chmod +x system_monitoring_script.sh
-
-2️⃣ Install mail utility
-
-sudo apt install mailutils
-
-3️⃣ Test manually
-
 ./system_monitoring_script.sh
-or
-sudo ./system_monitoring_script.sh
----
-
-📊 Sample Output
-
-Normal state:
-
-CPU Usage is Normal: 32%
-RAM Usage is Normal: 48%
-Disk Usage is Normal: 60%
-Nginx is running.
-
-Alert state:
-
-CPU ALERT! - Usage: 91%
-
+```
 
 ---
 
-🎯 What This Project Demonstrates
+## 📝 Sample Log Output
 
-✔ Linux system administration
-✔ Production-style monitoring
-✔ Automation using cron
-✔ Service health checks
-✔ Log management
-✔ Email alert integration
-✔ DevOps fundamentals
+```
+2026-05-06 10:00:01 - ===== Monitoring Started =====
+2026-05-06 10:00:02 - CPU Usage: 72%
+2026-05-06 10:00:02 - RAM Usage: 68%
+2026-05-06 10:00:02 - Disk Usage: 75%
+2026-05-06 10:00:02 - ===== Monitoring Completed =====
+```
 
+If threshold is crossed:
 
----
-
-🔮 Future Improvements
-
-Add load average monitoring
-
-Add Slack/Telegram alerts
-
-Improve CPU parsing method
-
-Make disk check dynamic (instead of hardcoded sda2)
-
-Add uptime monitoring
-
-
+```
+2026-05-06 10:05:02 - WARNING: RAM usage exceeded threshold!
+```
 
 ---
 
-👩‍💻 Author
+## 💡 Key Learning Outcomes
 
-Disha Rajput
-Linux & Cloud Learning Journey 
+- Parsing system metrics using Bash
+- Working with CPU, RAM, and Disk commands
+- Implementing threshold-based alerts
+- Writing structured logs
+- Automating monitoring using cron
+- Understanding production-style scripting
+
+---
+
+## 🚀 Future Improvements
+
+- Add email alerts on threshold breach  
+- Send notifications to Slack/Discord  
+- Add color-coded terminal output  
+- Add load average monitoring  
+- Convert into a reusable monitoring tool  
+
+---
+
+## 👩‍💻 Author
+
+**Disha Rajput**  
+Linux | Cloud | DevOps Learner

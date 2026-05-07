@@ -94,6 +94,6 @@ echo "_______________________________"
 echo "Username: $username" 
 echo "Password: $password"
 echo "Hostname: $(hostname)"
-echo "-------------------------------------------------"
+echo "---------------------------------------------------"
 exit 0
 
